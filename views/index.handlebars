@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        {{#each articles}}
+        <div class="card">
+            <div class="card-body">
+                <h2>{{this.title}}</h2>
+                <p>{{this.summary}}</p>
+                <a href="{{this.link}}">Read More</a>
+                <br>
+                {{!-- if article is not yet saved, show button to save it --}}
+                    {{#if this.saved}}
+                        <button class="btn btn-primary saved" data-id="{{this._id}}" data-click="true">Saved</button>
+                        {{else}}
+                        <button class="btn btn-primary save-it" data-id="{{this._id}}" data-click="false">Save</button>
+                    {{/if}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
